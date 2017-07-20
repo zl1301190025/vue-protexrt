@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<todo-item 
+					v-for="gro in groceryList" 
+					v-bind:todo="gro"
+					v-bind:key="gro.id">
+				</todo-item>
+			</ul>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		Vue.component("todo-item",{
+			prop:["todo"],	//添加一个自定义属性
+			templete:"<li>{{todo.text}}</li>"
+		})
+		var app=new Vue({
+			el:"#app",
+			data:{
+				groceryList:[
+					{id:0,text:"蔬菜"},
+					{id:1,text:"水果"},
+					{id:2,text:"vue"}
+				]
+			}
+		})
+	</script>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                00
+</html>
