@@ -11,7 +11,7 @@
 				<todo-item 
 					v-for="gro in groceryList" 
 					v-bind:todo="gro"
-					v-bind:key="gro.id">
+					v-bind:id="gro.id">
 				</todo-item>
 			</ul>
 		</div>
@@ -19,8 +19,8 @@
 	</body>
 	<script type="text/javascript">
 		Vue.component("todo-item",{
-			prop:["todo"],	//添加一个自定义属性
-			templete:"<li>{{todo.text}}</li>"
+			props:["todo"],	//添加一个自定义属性
+			template:"<li>{{todo.text}}</li>"
 		})
 		var app=new Vue({
 			el:"#app",
