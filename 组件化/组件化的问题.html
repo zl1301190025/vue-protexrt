@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--问题一-->
+		<table id="vedde1">
+			<tr is="my-row"></tr>
+			<my-row></my-row>
+		</table>
+		
+		<!--问题二-->
+		<div id="vedde2">
+			<my-row2></my-row2>
+			<my-row2></my-row2>
+			<my-row2></my-row2>
+			<div>
+				<my-row3></my-row3>
+				<my-row3></my-row3>
+				<my-row3></my-row3>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		问题一
+		Vue.component("my-row",{
+			template:"<tr>不能直接放my-row,会报错</tr>"
+		})
+		new Vue({
+			el:"#vedde1"
+		})
+		
+		
+		//问题二 data必须是一个函数,否则会提醒你data必须是一个函数
+		var data={count:0}
+		//此方法会共享data
+		Vue.component("my-row2",{
+			template:'<button v-on:click="count += 1">{{count}}</button>"',
+			data:function(){
+				return data
+			}
+		})
+		//此方法不会
+		Vue.component("my-row3",{
+			template:'<button v-on:click="count += 1">{{count}}</button>"',
+			data:function(){
+				return {
+					count:0
+				}
+			}
+		})
+		
+		new Vue({
+			el:"#vedde2"
+		})
+		
+	</script>
+</html>

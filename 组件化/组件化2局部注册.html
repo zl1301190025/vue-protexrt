@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app1">
+			<my-component></my-component>
+			<my-component2></my-component2>
+		</div>
+		<div id="app2">
+			<my-component></my-component>
+			<my-component2></my-component2>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var child={
+			template:"<div>A custom component!</div>"
+		}
+		Vue.component("my-component2",{
+			template:"<div>全局型</div>"
+		})
+		new Vue({
+			el:"#app1",
+			components:{
+				"my-component":child
+			}
+		})
+		new Vue({
+			el:"#app2"
+		})
+	</script>
+</html>

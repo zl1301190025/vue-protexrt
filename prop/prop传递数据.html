@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="prop-patext">	
+			<child1 message="hello"></child1>
+			<child2 my-message="驼峰法则中间需加-"></child2>
+			<!--动态绑定-->
+			<div>
+				<input type="text" v-model="data"/>
+				<br />
+				<child2 v-bind:my-message="data"></child2>
+				<!--缩写-->
+				<child2 :my-message="data"></child2>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		Vue.component("child1",{
+			props:["message"],
+			template:"<span>{{message}}</span>"
+		})
+		Vue.component("child2",{
+			props:["myMessage"],
+			template:"<span>{{myMessage}}</span>"
+		})
+
+		new Vue({
+			el:"#prop-patext",
+			data:{
+				data:"动态绑定"
+			}
+		})
+		
+	</script>
+</html>
