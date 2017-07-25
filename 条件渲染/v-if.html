@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="demo">
+			<p v-if="message>1">yes</p>
+			<p v-else>no</p>
+			<div v-if="message>2">
+				<p>sdadsa</p>
+				<p>sdasa</p>
+				<p>fasdad</p>
+			</div>
+			<div v-else>
+				<p>dsa</p>
+				<p>adsd</p>
+				<p>a</p>
+			</div>
+			<!--template可用于判断多个标签-->
+			<template v-if="message<2">
+				<h1>title</h1>
+				<p>Paragrap 1</p>
+				<p>Paragrap 1</p>
+			</template>
+			<template v-else-if="message==2">
+				<h1>title2</h1>
+				<p>Paragrap 2</p>
+				<p>Paragrap 2</p>
+			</template>
+			<template v-else>
+				<h1>title3</h1>
+				<p>Paragrap 3</p>
+				<p>Paragrap 3</p>
+			</template>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#demo",
+			data:{
+				message:2
+			}
+		})
+	</script>
+</html>

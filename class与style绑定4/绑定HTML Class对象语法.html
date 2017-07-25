@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<style>
+		.active{background: red;}
+		.text-danger{color: blue;}
+	</style>
+	<body>
+		<div id="demo">
+			<div v-bind:class="{active:isActive}">disad</div>
+			<div class="static" v-bind:class="{active:isActive,'text-danger':hasError}">rwerw</div>
+			<button v-on:click="dfas">点击变色</button>
+		</div>
+		<div id="demo2">
+			<div v-bind:class="classObject">绑定对象</div>
+		</div>
+		<!--绑定计算属性-->
+		<div id="demo3">
+			<div v-bind:class="classobjected">绑定计算属性</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#demo",
+			data:{
+				isActive:true,
+				hasError:false
+			},
+			methods:{
+				dfas:function(){
+					this.isActive=false
+					this.hasError=true
+					console.log(this.isActive)
+					console.log(this.hasError)
+				}
+			}
+		})
+		//绑定数组对象
+		var vm2=new Vue({
+			el:"#demo2",
+			data:{
+				classObject:{
+					isActive:true,
+					hasError:false
+				}
+			}
+		})
+		//绑定计算属性
+		var vm3=new Vue({
+			el:"#demo3",
+			data:{
+				isActive: true,
+  				error: null
+			},
+			computed:{
+				classobjected:function(){
+					return {
+						active:this.isActive && !this.error,
+						'text-danger':this.error && this.error.type==='fatal'
+					}
+				}
+			}
+		})
+	</script>
+</html>

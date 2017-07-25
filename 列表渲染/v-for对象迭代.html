@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<ul id="repeat-object">
+			<li v-for="value in object">
+				{{value}}
+			</li>
+		</ul>
+		<ul id="repeat-object2">
+			<li v-for="(value,key) in object">
+				{{value}}-{{key}}
+			</li>
+		</ul>
+		<ul id="repeat-object3">
+			<li v-for="(value,key,index) in object">
+				{{value}}-{{key}}-{{index}}
+			</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		new Vue({
+			el:"#repeat-object",
+			data:{
+				object:{
+					first:"john",
+					second:"Doe",
+					age:30
+				}
+			}
+		})
+		new Vue({
+			el:"#repeat-object2",
+			data:{
+				object:{
+					first:"john",
+					second:"Doe",
+					age:30
+				}
+			}
+		})
+		new Vue({
+			el:"#repeat-object3",
+			data:{
+				object:{
+					first:"john",
+					second:"Doe",
+					age:30
+				}
+			}
+		})
+	</script>
+</html>

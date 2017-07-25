@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<currency-input v-model="price"></currency-input>
+	</body>
+	<script type="text/javascript">
+		Vue.component("currency-input",{
+			template:'\
+				<span>\
+					$\
+					<input\
+						ref="input"\
+						v-bind:value="value"\
+						v-on:input="updateValue($event.target.value)"\
+					>\
+				</span>\
+			',
+			props:["value"],
+			methods:{
+				
+			}
+		})
+	</script>
+</html>

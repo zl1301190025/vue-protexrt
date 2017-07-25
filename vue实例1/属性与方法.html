@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">{{a}}</div>
+	</body>
+	<script type="text/javascript">
+		var data={a:1}
+		var vm=new Vue({
+			el:"#app",
+			data:data
+		})
+		
+		vm.$data===data
+		vm.$el===document.getElementById("app")
+		console.log(vm.$data)
+		console.log(vm.$el)
+		
+		vm.$watch("a",function(newVal,oldval){
+			
+		})
+	</script>
+</html>

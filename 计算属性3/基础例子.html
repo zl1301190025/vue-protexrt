@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="example">
+			<p>Original message: "{{ message }}"</p>
+			<p>Computed reversed message: "{{ reversedMessage }}"</p>
+			<p>{{now}}</p>
+<!--			<p v-on:click="methodnow">{{message}}</p>-->
+		</div>
+	</body>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#example",
+			data:{
+				message:'hello'
+			},
+			computed:{
+				//计算属性
+				//计算属性会有缓存，不想有缓存则可用methods
+				reversedMessage:function(){
+					return this.message.split('').reverse().join('')	
+				},
+				now:function(){
+					return Date.now()
+				}
+			}
+//			,
+//			methods:{
+//				methodnow:function(){
+//					this.message=Date.now()
+//				}
+//			}
+		})
+		console.log(vm.reversedMessage)
+		vm.message='goodbye'
+		console.log(vm.reversedMessage)
+	</script>
+</html>

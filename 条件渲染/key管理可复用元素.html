@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="demo">
+			<template v-if="loginType==='username'">
+				<label >Username</label>
+				<input placeholder="Enter your name"/>
+			</template>
+			<template v-else>
+				<label >Email</label>
+				<input placeholder="Enter your email"/>
+			</template>
+			<button v-on:click="changde">点击切换</button>
+			<!--加一个key值则在切换时会清空input中的值-->
+			<div>
+				<template v-if="loginTypetwo==='username'">
+				<label >Username</label>
+				<input placeholder="Enter your name" key="username-input"/>
+			</template>
+			<template v-else>
+				<label >Email</label>
+				<input placeholder="Enter your email" key="email-input"/>
+			</template>
+			<button v-on:click="changded">点击切换</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#demo",
+			data:{
+				loginType:'username',
+				loginTypetwo:"username"
+			},
+			methods:{
+				changde:function(){
+//					this.loginType="email"	
+				//当loginType=username为真时当loginType的值会变成email，否则变成username，相当于toggle
+					return this.loginType = this.loginType === 'username' ? 'email' : 'username'
+				},
+				changded:function(){
+					return this.loginTypetwo = this.loginTypetwo === 'username' ? 'email' : 'username'
+				}
+			}
+		})
+	</script>
+</html>

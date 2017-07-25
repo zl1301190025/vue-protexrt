@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p v-if="seen">if条件控制显示和隐藏true显示--false隐藏</p>
+			<p v-if="seened">if条件控制显示和隐藏</p>
+			<a v-bind:href="url">v-bind</a>
+			<!--缩写-->
+			<a :href="url">v-bind</a>
+			<button v-on:click="buttonclick">v-on绑定事件</button>
+			<!--缩写-->
+			<button @click="buttonclick">v-on绑定事件</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				message:"测试",
+				seen:true,
+				seened:false,
+				url:"www.baidu.com"
+			},
+			methods:{
+				buttonclick:function(){
+					console.log(110)
+				}
+			}
+		})
+	</script>
+</html>
