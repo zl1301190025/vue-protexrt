@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="example-1">
+			<button v-on:click="counter += 1">点击加1</button>
+			<p>点击了{{counter}}次</p>
+		</div>
+		<!--直接绑定-->
+		<div id="example-2">
+			<button v-on:click="greet">greet</button>
+		</div>
+		<!--内联-->
+		<div id="example-3">
+			<button v-on:click="end('vue')">vue</button>
+			<button v-on:click="end('angular')">angular</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var example1=new Vue({
+			el:"#example-1",
+			data:{
+				counter:0
+			}
+		})
+		var example2=new Vue({
+			el:"#example-2",
+			data:{
+				name:"vue.js"
+			},
+			methods:{
+				greet:function(event){
+					alert('hello'+this.name+"!")
+					if(event){
+						alert(event.target.tagName)
+					}
+				}
+			}
+		})
+		var example3=new Vue({
+			el:"#example-3",
+			methods:{
+				end:function(eng){
+					alert(eng);
+				}
+			}
+		})
+	</script>
+</html>

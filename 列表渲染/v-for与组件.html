@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="todo-list-example">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		Vue.component("todo-item",{
+			template:'\
+				<li>\
+					{{title}}\
+					<button v-on:click="$emit(\'remove\')">X</button>\
+				</li>\
+				',
+			prop:['title']
+		})
+		new Vue({
+			el:"#todo-list-example",
+			data:{
+				newTodoText:'',
+				todos: [
+					      {
+					        id: 1,
+					        title: 'Do the dishes',
+					      },
+					      {
+					        id: 2,
+					        title: 'Take out the trash',
+					      },
+					      {
+					        id: 3,
+					        title: 'Mow the lawn'
+					      }
+					    ],
+				nextTodoId: 4
+			},
+			methods:{
+				 addNewTodo: function () {
+			      this.todos.push(this.newTodoText)
+			      this.newTodoText = ''
+			    }
+			}
+		})
+	</script>
+</html>

@@ -21,6 +21,11 @@
 				{{value}}-{{key}}-{{index}}
 			</li>
 		</ul>
+		<div id="integer">
+			<span v-for="n in 10">
+				{{n}}
+			</span>
+		</div>
 	</body>
 	<script type="text/javascript">
 		new Vue({
@@ -52,6 +57,9 @@
 					age:30
 				}
 			}
+		})
+		new Vue({
+			el:"#integer"
 		})
 	</script>
 </html>
