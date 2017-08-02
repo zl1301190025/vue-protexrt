@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<!--复选框-->
+		<div id="app">
+			<input type="checkbox" 
+				v-model="toggle"
+				v-bind:true-value="a"
+				v-bind:false-value="b"
+			>
+			<input type="text" v-model="toggle"/>
+			<label for="checkbox">{{toggle}}</label>
+			<p><input type="radio" v-model="pick" v-bind:value="a"/> <label for="">{{pick}}</label></p>
+		</div>
+		<!--单选-->
+		<div id="app-2">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app=new Vue({
+			el:"#app",
+			data:{
+				toggle:"",
+				a:"1",
+				b:"2",
+				pick:""
+			}
+//			app.toggle===app.a
+//			app.toggle===app.b
+		})
+	</script>
+</html>

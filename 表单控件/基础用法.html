@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app-1">
+			<input v-model="message1" placeholder="first"/>
+			<p>message 的内容是:{{message1}}</p>
+			<textarea v-model="message2"></textarea>
+			<p>textarea也必须用v-model:{{message2}}</p>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app1=new Vue({
+			el:"#app-1",
+			data:{
+				message1:"",
+				message2:""
+			}
+		})
+	</script>
+</html>

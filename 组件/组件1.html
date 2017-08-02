@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<my-component></my-component>
+			<!--局部注册组件-->
+			<child></child>
+			<ul>
+				<li is="child"></li>
+				<li><my-component></my-component></li>
+			</ul>
+		</div>
+		<!--data-->
+		<div id="app-data">
+			<data-app></data-app>
+			<data-app></data-app>
+			<data-app></data-app>
+			<br />
+			<data-apped></data-apped>
+			<data-apped></data-apped>
+			<data-apped></data-apped>
+		</div>
+	</body>
+	<script type="text/javascript">
+		Vue.component("my-component",{
+			template:'<div>组件练习</div>'
+		})
+		var child={
+			template:'<p>局部注册组件</p>'
+		}
+		var app=new Vue({
+			el:"#app",
+			components:{
+				'child':child//局部注册组件
+			}
+		})
+		
+		var data={counter:0}
+		Vue.component("data-app",{
+			template:'<button v-on:click="counter += 1">{{ counter }}</button>',
+			data:function(){
+				return data
+			}
+		})
+		Vue.component("data-apped",{
+			template:'<button v-on:click="countered += 1">{{ countered }}</button>',
+			data:function(){
+				return {
+					countered:0
+				}
+			}
+		})
+		new Vue({
+			el:"#app-data"
+		})
+		
+		
+	</script>
+</html>

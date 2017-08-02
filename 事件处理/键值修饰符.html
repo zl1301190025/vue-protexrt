@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input v-on:keyup.enter="submit(dsad)" v-model="dsad"/>
+			<input v-on:keyup.tab="tab" />
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app1=new Vue({
+			el:"#app",
+			data:{
+				dsad:"132"
+			},
+			methods:{
+				submit:function(dsad){
+					alert(dsad);
+				},
+				tab:function(){
+					alert(2);
+				}
+			}
+			
+		})
+	</script>
+</html>

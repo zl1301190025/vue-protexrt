@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--lazy:变成change事件-->
+			<input v-model.lazy="msg">
+			<p>{{msg}}</p>
+			<!--number:input变成数字类型-->
+			<input v-model.number="age">
+			<p>{{age}}</p>
+			<!--trim过滤收尾空格-->
+			<input v-model.trim="age">
+			<p>{{age}}</p>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app=new Vue({
+			el:"#app",
+			data:{
+				msg:"",
+				age:""
+			}
+		})
+	</script>
+</html>
