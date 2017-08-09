@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=0.5,minimum-scale=0.5,maximum-scale=0.5,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../answer/vue-2-basics-master/static/css/main.css" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../answer/vue-2-basics-master/static/js/gamesDB.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="container">
+				<div class="page-header">
+                	<h2 class="myCash">我的余额：HK$ {{ myBalance.toFixed(2) }}</h2>
+            	</div>
+				<div class="wishList col-md-6">
+					<h3>愿望清单：</h3>
+					<div class="gameItem" v-for="item in wishList">
+						<img :src="item.img" />
+						<div class="gameInfo">
+							<h2 class="name">{{item.name}}</h2>
+							<p class="price">HK${{item.price.toFixed(2)}}</p>
+							<!--toFixed保留两位小数-->
+							<button class="btn btn-danger btn-lg" @click="buyGame(item.id)">立即购买</button>
+						</div>
+					</div>
+				</div>
+				<div class="purchasedGames col-md-6">
+					<h3>已入游戏：</h3>
+					<div class="gameItem" v-for="item in myGames">
+						<img :src="item.img">
+						<div class="gameInfo">
+							<h2 class="name">{{item.name}}</h2>
+							<button class="btn btn-danger btn-lg" @click="showCash(item.id)">取消购买</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: "#app",
+			data: {
+				games: window.games,
+				myCash: 5000
+			},
+			methods: {
+				buyGame: function(id) {
+					this.games[id].purchased=true
+				},
+				showCash:function(id){
+					this.games[id].purchased=false
+				}
+			},
+			computed: {
+				wishList: function() {
+					return this.games.filter(function(fds){
+						return !fds.purchased
+					})
+				},
+				myGames: function() {
+					return this.games.filter(function(fds){
+						return fds.purchased
+					})
+				},
+				myBalance:function(){
+					var sum=0
+					this.myGames.forEach(function(game,index){
+						sum +=game.price
+					})
+					return this.myCash-sum
+				}
+			}
+		})
+	</script>
+
+</html>
