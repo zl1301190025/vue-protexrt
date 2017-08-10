@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=0.5,minimum-scale=0.5,maximum-scale=0.5,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../answer/vue-2-basics-master/static/css/main.css" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../answer/vue-2-basics-master/static/js/gamesDB.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+
+	<body>
+		<div id="app">
+			<one></one>
+			<two></two>
+			<three>有内容，slot内容则不会显示</three>
+			<three></three-solt>
+			<four>
+				<ul slot="header" class="nav nav-tabs">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Messages</a></li>
+				</ul>
+				<div slot="content">this is kong</div>
+				<template slot="content">外面不会包裹div</template>
+			</four>
+			<input type="text" v-model="userInput"/>
+			<br />
+			<five :user-name="userInput"></five>
+			<!--绑定一些属性-->
+			
+			<six></six>
+		</div>
+	</body>
+<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
+</html>
