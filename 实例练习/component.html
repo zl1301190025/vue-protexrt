@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
@@ -9,20 +8,17 @@
     	<link rel="stylesheet" href="../answer/vue-2-basics-master/static/css/main.css">
 		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../answer/vue-2-basics-master/static/js/gamesDB.js" type="text/javascript" charset="utf-8"></script>
-		
 	</head>
-
 	<body>
 		<div id="app">
-			<page-nav>
-				<page name="商品详情" link="detail" active="true">
-					<h4>这里是商品详情</h4>
-				</page>
-				<page name="商品信息" link="info">
-					<h4>这里是商品信息</h4>
-				</page>
-			</page-nav>
+			<!--<div class="boxWrapper">
+				<div v-show="showBox">I am your Big Box</div>
+			</div>
+			<toggle-btn v-on:toggled="toggleBox"></toggle-btn>-->
+			<listener v-show="showBox"></listener>
+			<toggle-btn></toggle-btn>
+			
 		</div>
 	</body>
-<script src="js/template_video.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/component.js" type="text/javascript" charset="utf-8"></script>
 </html>
