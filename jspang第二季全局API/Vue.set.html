@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue"></script>
+    <title>Vue.set 全局操作</title>
+</head>
+<body>
+    <h1>Vue.set 全局操作</h1>
+    <hr>
+    <div id="app">
+        <ul>
+            <li v-for=" aa in arr">{{aa}}</li>
+        </ul>
+       
+    </div>
+    <button onclick="add()">外部添加</button>
+ 	<button onclick="addtwo()">会随变化而变化</button>
+    <script type="text/javascript">
+     
+        function add(){
+            console.log("我已经执行了");
+           app.arr[1]='ddd';
+           console.log(app.arr);
+           //Vue.set(app.arr,1,'ddd');
+        }
+        function addtwo(){
+        	Vue.set(app.arr,1,"change");
+        	console.log(app.arr);
+        }
+        var outData={
+            arr:['aaa','bbb','ccc']
+        };
+        var app=new Vue({
+            el:'#app',
+            data:outData
+        })
+    </script>
+</body>

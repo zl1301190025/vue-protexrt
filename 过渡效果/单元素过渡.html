@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<style>
+		.fade-enter-active, .fade-leave-active {
+		  transition: opacity .5s
+		}
+		.fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+		  opacity: 0
+		}
+		
+		
+
+		/* 可以设置不同的进入和离开动画 */
+		/* 设置持续时间和动画函数 */
+		.slide-fade-enter-active {
+		  transition: all .9s ease;
+		}
+		.slide-fade-leave-active {
+		  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+		}
+		.slide-fade-enter, .slide-fade-leave-to
+		/* .slide-fade-leave-active for below version 2.1.8 */ {
+		  transform: translateX(10px);
+		  opacity: 0;
+		}
+	</style>
+	<body>
+		<div id="demo">
+			<button v-on:click="show=!show">toggle</button>
+			<transition name="fade">
+				<p v-if="show">hello</p>
+			</transition>
+		</div>
+		<div id="app">
+			<button v-on:click="show=!show">toggle</button>
+			<transition name="slide-fade">
+				<p v-if="show">hello</p>
+			</transition>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var demo=new Vue({
+			el:"#demo",
+			data:{
+				show:true
+			}
+		})
+		
+		
+		var app=new Vue({
+			el:"#app",
+			data:{
+				show:true
+			}
+		})
+	</script>
+</html>

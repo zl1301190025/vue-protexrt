@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue"></script>
+    <title>propsData 全局扩展的数据传递</title>
+</head>
+<body>
+   <div id="app">
+		{{newprice}}
+   </div>
+   
+   <script type="text/javascript">
+	var app=new Vue({
+		el:"#app",
+		data:{
+			price:100
+		},
+		computed:{
+			newprice:function(){
+				return this.price="￥"+this.price
+			}
+		}
+	})
+   </script>
+</body>

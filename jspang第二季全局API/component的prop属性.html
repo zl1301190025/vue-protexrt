@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue"></script>
+    <title>template制作模板</title>
+</head>
+<body>
+   <div id="app">
+   		<pang here="china"></pang>
+   		<pang v-bind:here="message"></pang>
+   </div>
+   
+   <script type="text/javascript">
+   	var app=new Vue({
+   		el:"#app",
+   		data:{
+   			message:"hello Vue!"
+   		},
+   		components:{
+   			pang:{
+   				template:'<div style="color:red;">{{here}}</div>',
+   				props:['here']
+   			}
+   		}
+   	})
+
+   </script>
+</body>

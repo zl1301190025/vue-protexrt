@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue"></script>
+    <title>template制作模板</title>
+</head>
+<body>
+   <div id="app">
+   		<!--<jspang></jspang>-->
+   		<!--父子组件-->
+   		<ciry></ciry>
+   </div>
+   
+   <script type="text/javascript">
+   	var jspang={
+   		template:'<div>构造器外部写局部组件</div>'
+   	}
+   	var ciry={
+   		template:'<div><div>父子组件的嵌套</div><jspang></jspang></div>',
+   		components:{
+   			"jspang":jspang
+   		}
+   		
+   	}
+   	var app=new Vue({
+   		el:"#app",
+   		data:{
+   			message:"hello Vue!"
+   		},
+   		components:{
+   			"ciry":ciry
+   		}
+   	})
+
+   </script>
+</body>

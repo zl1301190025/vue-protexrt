@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue"></script>
+    <title>propsData 全局扩展的数据传递</title>
+</head>
+<body>
+   <div id="app">
+		<header></header>
+   </div>
+   
+   <script type="text/javascript">
+   var header_a=Vue.extend({
+   	template:'<p>{{message}}--{{a}}</p>',
+   	data:function(){
+   		return{
+   			message:'hello ,I am header'
+   		}
+   	},
+   	props:['a']
+   })
+	new header_a({propsData:{a:1}}).$mount("header");
+   </script>
+</body>
