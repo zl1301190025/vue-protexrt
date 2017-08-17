@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue"></script>
+    <title>propsData 全局扩展的数据传递</title>
+</head>
+<body>
+   <div id="app">
+		<p>今日温度：{{temperature}}°C</p>
+		<p>穿衣建议：{{clothes}}</p>
+		<p><button @click="add">温度上升</button><button @click="subtract">温度下降</button></p>
+   </div>
+   
+   <script type="text/javascript">
+   	var suggestion=['T恤短袖','夹克长裙','棉衣羽绒服'];
+	var app=new Vue({
+		el:"#app",
+		data:{
+			temperature:15,
+			clothes:'夹克长裙'
+		},
+		methods:{
+			add:function(){
+				this.temperature+=5
+			},
+			subtract:function(){
+				this.temperature-=5
+			}
+		},
+		watch:{
+			temperature:function(newVal,oldVal){
+				if(newVal>26&&newVal<42){
+					this.clothes=suggestion[0];
+				}else if(newVal<26&&newVal>=0){
+					this.clothes=suggestion[1];
+				}else if(newVal>42){
+					this.clothes="你可以裸着了"
+				}
+				else{
+					this.clothes=suggestion[2];
+				}
+			}
+		}
+	})
+	//改成实例属性，效果一样，降低耦合度，程序更灵活
+//	app.$watch("temperature",function(newVal,oldVal){
+//		if(newVal>26&&newVal<42){
+//					this.clothes=suggestion[0];
+//				}else if(newVal<26&&newVal>=0){
+//					this.clothes=suggestion[1];
+//				}else if(newVal>42){
+//					this.clothes="你可以裸着了"
+//				}
+//				else{
+//					this.clothes=suggestion[2];
+//				}
+//	})
+   </script>
+</body>

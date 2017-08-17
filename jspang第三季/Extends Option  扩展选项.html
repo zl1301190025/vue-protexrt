@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue"></script>
+    <title>Extends Option  扩展选项</title>
+</head>
+<body>
+   <div id="app">
+		<div>${message}</div>
+		<p><button @click="add">点击增加</button></p>
+   </div>
+   
+   <script type="text/javascript">
+   	var bb={
+   		created:function(){
+   			console.log("我是被扩展出来的");
+   		},
+   		methods:{
+   			add:function(){
+				console.log('我是被扩展出来的方法！');
+			}
+   			//方法名字相同则不执行
+   		}
+   	}
+	var app=new Vue({
+		el:"#app",
+		data:{
+			message:"hello Vue"
+		},
+		methods:{
+			add:function(){
+				console.log('我是原生方法');
+			}
+		},
+		created:function(){
+   			console.log("我是原生的creared");
+   		},
+		extends:bb,
+		delimiters:['${','}']
+	})
+   </script>
+</body>
