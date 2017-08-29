@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{num}}</p>
+			<p><button @click="add">点击添加</button></p>
+			
+		</div>
+		<p><button onclick="reduce()">点击减少</button></p>
+		<p><button onclick="jianyichi()">点击减少</button></p>
+		<p><button onclick="off()">点击关闭事件</button></p>
+	</body>
+	<script type="text/javascript">
+		var app=new Vue({
+			el:"#app",
+			data:{
+				num:1
+			},
+			methods:{
+				add:function(){
+					this.num++
+				}
+			}
+		})
+		app.$on('reduce',function(){
+			console.log('执行了reduce()');
+			this.num--;
+		})
+		function reduce(){
+			app.$emit("reduce");
+		}
+		app.$once('reduceOnce',function(){
+			console.log("只会执行一次");
+			this.num--;
+		})
+		function jianyichi(){
+			app.$emit("reduceOnce");
+		}
+		/*关闭事件*/
+		function off(){
+			app.$off('reduce');
+		}
+	</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>实例方法</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div class="en">{{message}}</div>
+			
+		</div>
+		<p><button onclick="destroy()">点击删除</button></p>
+		<p><button onclick="updata()">点击更新</button></p>
+		<p><button onclick="tick()">点击更新</button></p>
+	</body>
+	<script type="text/javascript">
+		var jspang=Vue.extend({
+			template:'<p>{{message}}</p>',
+			data:function(){
+				return {
+					message:"hello Vue"
+				}
+			},
+			mounted:function(){
+				console.log("创建成功")
+			},
+			destroyed:function(){
+				console.log("卸载成功")
+			},
+			updated:function(){
+				console.log("更新完成")
+			}
+			
+		})
+		var vm=new jspang().$mount(".en")
+		function destroy(){
+			vm.$destroy();
+		}
+		function updata(){
+			vm.$forceUpdate();
+		}
+		function tick(){
+			vm.message="update message info";
+			vm.$nextTick(function(){
+				console.log('message更新完我被调用');
+			})
+		}
+	</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<jspang>
+				
+			</jspang>
+		</div>
+		<template id="tmp">
+			<div>
+				<p>博客地址：</p>
+				<p>网名：</p>
+				<p>技术类型：</p>
+			</div>
+		</template>
+	</body>
+	<script type="text/javascript">
+		var jspang={
+			template:'#tmp'
+		}
+		var app=new vue({
+			el:"#app",
+			data:{
+				jspangData:{
+					bolgUrl:'http://jspang.com',
+        			netName:'技术胖',
+        			skill:'Web前端'
+				}
+			}
+		})
+	</script>
+</html>
