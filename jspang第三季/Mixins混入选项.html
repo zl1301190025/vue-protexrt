@@ -12,6 +12,7 @@
    </div>
    
    <script type="text/javascript">
+   	//全局混入
    	Vue.mixin({
 	    updated:function(){
 	        console.log('我是全局被混入的');
@@ -19,9 +20,10 @@
 	})
    	var addlog={
    		updated:function(){
-   			console.log("数据发生了变化，变成了"+this.num+".")
+   			console.log("数据发生了变化，变成了温度上升"+this.num+"度");
    		}
    	}
+   	
 	var app=new Vue({
 		el:"#app",
 		data:{
@@ -39,4 +41,5 @@
 	})
 
    </script>
+  
 </body>

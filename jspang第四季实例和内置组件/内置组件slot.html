@@ -8,14 +8,16 @@
 	<body>
 		<div id="app">
 			<jspang>
-				
+				<span slot="bolgUrl">{{jspangData.bolgUrl}}</span>    
+		        <span slot="netName">{{jspangData.netName}}</span>    
+		        <span slot="skill">{{jspangData.skill}}</span> 
 			</jspang>
 		</div>
 		<template id="tmp">
 			<div>
-				<p>博客地址：</p>
-				<p>网名：</p>
-				<p>技术类型：</p>
+				<p>博客地址：<slot name="bolgUrl"></slot></p>
+				<p>网名：<slot name="netName"></slot></p>
+				<p>技术类型：<slot name="skill"></slot></p>
 			</div>
 		</template>
 	</body>
@@ -23,7 +25,7 @@
 		var jspang={
 			template:'#tmp'
 		}
-		var app=new vue({
+		var app=new Vue({
 			el:"#app",
 			data:{
 				jspangData:{
@@ -31,6 +33,9 @@
         			netName:'技术胖',
         			skill:'Web前端'
 				}
+			},
+			components:{
+				"jspang":jspang
 			}
 		})
 	</script>
