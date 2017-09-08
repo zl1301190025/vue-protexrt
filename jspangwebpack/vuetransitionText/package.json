@@ -1,5 +1,5 @@
 {
-  "name": "vueclitest",
+  "name": "vuetrantext",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "",
@@ -11,8 +11,7 @@
   },
   "dependencies": {
     "vue": "^2.4.2",
-    "vue-router": "^2.7.0",
-    "vuex": "^2.4.0"
+    "vue-router": "^2.7.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
